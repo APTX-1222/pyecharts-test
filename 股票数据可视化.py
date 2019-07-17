@@ -9,6 +9,8 @@ import tushare as ts
 import pyecharts as pe
 
 df_qjd = ts.get_hist_data('000725')
+
+# 将df行反转
 df_qjd = df_qjd.iloc[::-1]
 x = df_qjd.index.tolist()
 y = df_qjd[['open', 'close', 'low', 'high']].values.tolist()

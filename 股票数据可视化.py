@@ -41,4 +41,4 @@ overlap.add(kline)
 overlap.add(line)
 
 
-overlap.render('C:/Users/KID/Desktop/股票数据可视化.html')
+overlap

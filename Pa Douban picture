@@ -1,0 +1,30 @@
+import requests
+from bs4 import BeautifulSoup
+import os
+
+
+urls = []
+for i in range(0, 121, 30):
+    url = 'https://movie.douban.com/subject/26887174/photos?type=S&start=%s&sortby=like&size=a&subtype=a'%i
+    urls.append(url)
+
+
+imgtags = []
+for u in urls:
+    r = requests.get(u)
+    soup = BeautifulSoup(r.text, 'html')
+    imgs = soup.find('ul', class_="poster-col3 clearfix").find_all('img')
+    imgtags.extend(imgs)
+    
+    
+os.mkdir('pic')
+os.chdir('C:/Users/APTX-4869/pic')
+
+
+n =0
+for p in imgsrc:
+    n += 1
+    r = requests.get(p)
+    with open('p%s.jpg'%n, 'wb') as f:
+        f.write(r.content)
+    print('成功保存第%s张图片'%n)
